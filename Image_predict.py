@@ -11,7 +11,7 @@ model = pickle.load(open('Gender_model.sav', 'rb'))
 
 #detecting faces in images
 num = 0
-for file in glob.glob("try/*"):
+for file in glob.glob("folder_name/*.jpg"):
     try:
         img = cv2.imread(file)
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
