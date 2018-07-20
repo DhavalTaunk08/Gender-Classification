@@ -5,7 +5,7 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.utils import shuffle
 import pickle
 
-data = pd.read_csv('dataset3.csv')
+data = pd.read_csv('Image_dataset.csv')
 
 data = shuffle(data, random_state=0)
 
