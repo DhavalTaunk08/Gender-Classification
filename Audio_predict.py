@@ -18,7 +18,7 @@ scaler.fit(x)
 
 x = scaler.transform(x)
 
-for file in glob.glob("try/*"):
+for file in glob.glob("folder_name/file_name"):
 	y, sr = librosa.load(file, sr=8000)
 
 	mfcc = librosa.feature.mfcc(y=y,sr=sr, n_mfcc=13, n_fft=160, hop_length=80)
