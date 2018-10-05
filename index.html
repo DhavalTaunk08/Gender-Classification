@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			body{font-family: sans-serif;}
+			.section{position: relative;width: 90%;margin: auto;padding: 2%;}
+			.heading{position: relative; width: 98%;text-align: left;font-size: 25px;font-weight: bold;}
+			.text{width: 95%;font-size: 15px;text-align: justify;padding: 10px 0px 0px 0px;}
+			.subheading{position: relative; width: 98%;text-align: left;font-size: 20px;font-weight: bold;}
+		</style>
+		<title>Report</title>
+	</head>
+<body>
+	<div>
+		<h1 align="center" style="font-size:30px;font-family:verdana;">Gender Classification using Multilayer Perceptron in Image/Voice</h1>
+	</div>
+
+	<div>
+		<h3 align="center" style="font-size:20px;font-family:courier;">Dhaval Taunk, Roll-No:2016081, B.Tech. CSE, PDPM IIITDM Jabalpur</h3>
+	</div>
+
+	<div class="section">
+		<div class="heading">
+			Abstract
+		</div>
+
+		<div class="text">
+			In the project, Geneder Classification is done both in Image as well as in voice. When classification is done using image the accuracy came around 87.4%. When classification is done using audio files by extracting features, accuracy came to be around 98.7%. OpenCV is used to extract features from images. Librosa library is used to extract features from audio/video files.
+		</div>
+	</div>
+
+	<div class="section">
+		<div class="heading">
+			1. Introduction:
+		</div>
+
+		<div class="text">
+			Human beings have an excellent ability to distinguish between male and female just by looking at an image or by hearing voice. In this project, an attempt is made to classify male/female using image and also through audio files by extracting relevant features. Gender classification has now a days become useful in many real life applications like biometrics and in many other things. 
+		</div>
+	</div>
+
+	<div class="section">
+		<div class="heading">
+			2. Problem Statement:
+		</div>
+
+		<div class="text">
+			It is not a hard task for human being to classify male/female by looking image or by hearing voice. But for a machine learning model, it is necessary to extract useful features to audio files to distinguish correctly between male and female. 
+		</div>
+	</div>
+
+	<div class="section">
+		<div class="heading">
+			3. Proposed Approach
+		</div>
+
+		<div class="text">
+			To classify male/female from images, a labeled set of images is used. The dataset has 10,000 labeled images of male and 10,000 labeled images of female. The challenge is to find location of face in an image. This is done by using <b>Haar Cascades classifier</b> in OpenCV. After detecting faces, the entire dataset of images of face is cropped to specified dimension(20px * 20px) so that the input size for machine learning model is same for all images. Then after extracted pixel values are saved to use in training the model. Then the model is trained using the saved values.<br/><br/>
+			
+			To classify male/female using audio files, features are extracted using Librosa library in python. For this the features that were extracted are <b>mfcc, delta, double delta, spectral centroid, spectral flatness, spectral rolloff, spectral flux, zero crossings and pitch</b>. The audio files that were used to extract features were speech of one male and one female person. Both audio files were of nearly length of half an hour. The frame size was taken to be of 20ms with an overlapping of 10ms window. Nearly 2,00,000 frames of each of the audio files were extracted. But there were some silence points  which were needed to be removed. After removing the silence points using threholding, there were nearly 1.75 lakhs frames of each audio file.<br><br>
+
+			Then Gender Classification is tried on live streaming video. For this, it is necessary to identify single speaker regions and multi speaker region in a video. The dataset used for this is of AMI Corpus. It has pre labeled single speaker and multi speaker regions. To extract features, the video files were first converted into audio files. To train the model, <b>stft, mfcc, delta, double delta</b> of the frames was calculated. The frame size was kept 30ms with an overlapping size of 10ms.
+		</div>
+	</div>
+
+	<div class="section">
+		<div class="heading">
+		4. Experiments and Results
+		</div>
+
+		<div class="text">
+			The images used were cropped to dimension of (20px * 20px). Therefore, the input size of data for the model was 400. <b>Sklearn</b> was used to train the model. The trained model using images has an accuracy of <b>87.4%</b>.<br><br>
+
+			The features extracted from audio files using <b>Librosa</b> library were saved in csv file. It is arranged accordingly as follows- the first 13 columns represent mfcc, next 13 columns represent delta, next 13 double delta, next column spectral flatness, next column spectral centroid, next column spectral flux, next column spectral rolloff, then next 160 columns represent zero crossings, then second last column represent pitch and the last column representing labels 1 as male and 0 as female. The trained model has an accuracy of <b>98.7%</b>.<br><br>
+
+			Then in live streaming video, to detect single speaker and multi speaker region, <b>stft(short time fourier transform), mfcc, delta, double delta</b> was calculated using Librosa library and also arranged in csv file in same manner. Then the model is trained using these features as input features. The trained model has an accuracy of <b>68.4%</b>.<br><br>
+
+			The link to the code can be found <a href="https://github.com/DhavalTaunk08/Gender-Classification" target="_blank">here</a>
+		</div>
+	</div>
+
+	<div class="section">
+		<div class="heading">
+			5. Conclusion
+		</div>
+		<br>
+		<div class="subheading">
+			5.1 Summary
+		</div>
+		<div class="text">
+			Gender Classification using multilayer perceptron, the task assigned to me by <b>Prof. Dr. Prithwijit Guha Sir</b> was indeed a challenging and worth doing project. A total of 3 models were trained out of which 2 are trained for gender classification using image and audio file respectively. The accuracy of these was nearly 87.4% and 98.7% respectively. The third model that is used to classify single/multiple speaker region in video file which has an accuracy of 68.4%.
+		</div>
+		<br></br>
+		<div class="subheading">
+			5.2 Future Extensions
+		</div>
+		<div class="text">
+			In future, the accuracy of the model can further be improved by adding more dataset or by adding more input features. Therefore, the code is open sourced and the link is provided above.
+		</div>
+	</div>
+
+</body>
+</body>
+</html>
