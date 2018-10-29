@@ -24,6 +24,6 @@ print(mlp.score(x_test, y_test))
 print(mlp.score(x_train, y_train))
 
 #dumping model in a file
-file = "Gender_model.sav"
+file = "Image_model.sav"
 
 pickle.dump(mlp, open(file, 'wb'))
